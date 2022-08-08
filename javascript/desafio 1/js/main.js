@@ -3,11 +3,11 @@ class Vino {
         this.tipo = tipo
         this.precio = precio
         this.unidades = unidades
-        this.precioTax = function () {
+    }
+        precioTax () {
             let precioFinal = this.precio * tax
             return "£" + precioFinal
-        }
-    }
+        } 
 }
 
 const tax = 1.2
@@ -21,7 +21,38 @@ const rose = new Vino("Vino rose ", 17, 48)
 const espumante = new Vino("Vino espumante Extra Brut", 25, 30)
 
 let listaVinos = {tinto, blanco, rose, espumante}
-    do {
-        listaVinos.precio = alert("Alert! Low stock, time to order more!");
-        console.log("Alert! Low stock, time to order more!");
-    } while (listaVinos.precio < 100)
+
+function newWine() {
+    tipo =  prompt("What type of wine is it?").toLowerCase()
+    precio = prompt("What's the price? (in £)")
+    unidades = prompt("How many have you got in stock?")
+    const addWine = new Vino (tipo, precio, unidades)
+    console.log(addWine)    
+}
+
+console.log(tinto.precioTax()),
+console.log(blanco.precioTax()),
+console.log(rose.precioTax()),
+console.log(espumante.precioTax())
+
+
+function calcularTinto() {  
+    let cantidadIngresada = parseInt(prompt("how many Malbecs are you buying?"));
+    
+    return tinto.precio * cantidadIngresada * tax
+}
+function calcularBlanco() {  
+    let cantidadIngresada = parseInt(prompt("how many Chardonnays are you buying?"));
+    
+    return blanco.precio * cantidadIngresada * tax
+}
+function calcularRose() {  
+    let cantidadIngresada = parseInt(prompt("how many Rose are you buying?"));
+    
+    return rose.precio * cantidadIngresada * tax
+}
+function calcularEsp() {  
+    let cantidadIngresada = parseInt(prompt("how many Fizzy Wines are you buying?"));
+    
+    return espumante.precio * cantidadIngresada * tax
+}
